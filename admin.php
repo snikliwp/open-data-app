@@ -47,7 +47,9 @@ $results = $db->query('SELECT id, name, longitude, latitude, address
 			</tbody>
 		</table>
 
-	<a href="admin.php"><button class="add">Admin</button></a>
+	<a href="admin/add.php"><button class="add">Add a New Museum</button></a>
+	<a href="admin/delete.php"><button class="add">Delete a New Museum</button></a>
+	<a href="admin/edit.php"><button class="add">Edit a New Museum</button></a>
 
 </body>
 </html>
