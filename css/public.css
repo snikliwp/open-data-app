@@ -32,6 +32,29 @@ Tags: Ottawa Museums
  *  @section  General
  */
 
+
+html {
+	height: 100% 
+	}
+body {
+	height: 100%; 
+	margin: 0; 
+	padding: 0 
+	}
+#map_canvas {
+	height: 100% 
+	}
+
+
+
+
+
+
+
+
+
+
+
 .body {
 	margin-top: 1em;
 	padding: 2em;

@@ -1,4 +1,20 @@
 // JavaScript Document
+
+function setMarker(lat, long, title) {
+	var myLatlng = new google.maps.LatLng(lat, long)
+	var marker = new google.maps.Marker({
+		position: myLatlng,
+		'title': title
+	});
+	// To add the marker to the map, call setMap();
+	marker.setMap(map);
+	
+	 
+} // end function
+
+
+
+
 $(document).ready(function() {
 	
 //	$('.tab-group img:not(:first-child)').hide();

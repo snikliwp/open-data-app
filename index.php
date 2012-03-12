@@ -3,7 +3,7 @@
 require_once 'includes/db.php';
 
 $results = $db->query('SELECT id, name, longitude, latitude, address 
-				FROM museums 
+				FROM gardens 
 				ORDER BY name ASC');
 ?>
 
@@ -11,43 +11,44 @@ $results = $db->query('SELECT id, name, longitude, latitude, address
 <!DOCTYPE HTML>
 <html>
 <head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<meta charset="utf-8">
-	<title>Museums</title>
+	<title>Gardens</title>
 	<link href="css/public.css" rel="stylesheet">
+	<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAN6BT9K7vBTXbTaGnTsqF3jQIy_Q7rpV0&sensor=false">
+    </script>
+	<script type="text/javascript">
+		var map
+		function initialize() {
+		var myOptions = {
+		center: new google.maps.LatLng(45.401, -75.692),
+		zoom: 14,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+		myOptions);
+		afterInit();
+	}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src= "js/open-data-app.js"></script>
 </head>
 
-<body>
-		<table border="1">
-<!--	The caption element briefly describes the contents of the table -->
-		<caption>Museums</caption>
-	<!--	Header Rows of the table describe each of the columns -->
-			<thead>
-				<tr>
-					<th scope="col" class='name'>Name</th>
-					<th scope="col" class='latitude'>Latitude</th>
-					<th scope="col" class='longitude'>Longitude</th>
-					<th scope="col" class='address'>Address</th>
-				</tr>
-			</thead>
-	<!-- colgroup element allows us to semantically group columns and apply css to a column -->
-			<tbody>
-		<?php foreach ($results as $museum) : ?>
-		 <tr><td>
-		 <a href="single.php?id=<?php echo $museum['id'];?>"><?php  echo $museum['name']; ?> </a>
-		 </td><td>
-		<a href=""><?php echo $museum['longitude'];?></a>
-		 </td><td>
-		<a href=""><?php echo $museum['latitude'];?></a>
-		</td>
-		 </td><td>
-		<a href=""><?php echo $museum['address'];?></a>
-		</td>
-		 <?php endforeach ?>
-</nav>
-			</tbody>
-		</table>
+	<body onload="initialize()">
+	<div id="map_canvas" style="width:100%; height:100%"></div>
 
-	<a href="admin.php"><button class="add">Admin</button></a>
+	<script type="text/javascript">
+		function afterInit() {
+		<?php foreach ($results as $garden) : ?>
+			setMarker(<?php echo $garden['latitude'];?>, <?php echo $garden['longitude'];?>, "<?php echo $garden['name'];?>");
+		<?php  endforeach ?>
+		}
+	</script>
+		
+		
 
+
+-->
 </body>
 </html>
