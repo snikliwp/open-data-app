@@ -2,9 +2,13 @@
 	require_once 'includes/filter-wrapper.php';
 require_once 'includes/db.php';
 
-$results = $db->query('SELECT id, name, longitude, latitude, address 
+// When using ->query(), the results variable isn't a real array, its an iterable object
+//  Therefore, after the first loop has completed, it isn't being reset to the start
+// By calling the ->fetchAll() method on the variable, we get a real array, and can loop multiple times.
+$stmt = $db->query('SELECT id, name, longitude, latitude, address 
 				FROM gardens 
 				ORDER BY name ASC');
+$results = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE HTML>
