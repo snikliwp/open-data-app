@@ -9,9 +9,7 @@ function setMarker(lat, long, title) {
 	});
 	// To add the marker to the map, call setMap();
 	marker.setMap(map);
-	
-	 
-} // end function
+} // end setMarker function
 
 
 
@@ -30,13 +28,6 @@ $(document).ready(function() {
 // end of document ready function
 
 
-function switchTab() {
-	
-	console.log(tabToShow);	   // will return '#tab-1' when you click on an 'a' button
-			
-
-	
-}
 
 
 

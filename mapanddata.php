@@ -7,7 +7,6 @@ $results = $db->query('SELECT id, name, longitude, latitude, address
 				ORDER BY name ASC');
 ?>
 
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -36,7 +35,30 @@ $results = $db->query('SELECT id, name, longitude, latitude, address
 </head>
 
 	<body onload="initialize()">
-		<div class="grid-unit grid-unit-triple" >
+	<body>
+	<div class="grid-row clearfix">
+			<div class="grid-unit grid-unit-single">
+			<div class="menu">
+				<h2>Gardens</h2>
+				<table class='main'>
+					<tbody>
+					<nav>
+								<?php foreach ($results as $garden) : ?>
+								<?php echo '<tr> <td>' ?>
+								 <a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
+								<?php echo '</td> </tr>' ?>
+								<?php endforeach ?>
+					</nav>
+					</tbody>
+				</table>
+			</div> <!-- end class menu -->
+		</div> <!-- end class grid-unit-single -->
+
+
+	
+	
+		<div class="grid-unit grid-unit-triple">
+			<a href="admin.php"><button class="add">Admin Login</button></a>
 			<br>
 			<div id="map_canvas" ></div>
 				<script type="text/javascript">
