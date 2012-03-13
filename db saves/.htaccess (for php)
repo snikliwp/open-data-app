@@ -1,0 +1,15 @@
+SetEnv WP_HOME http://localhost/wilk0146/chapeau
+
+SetEnv DB_NAME wilk0146
+
+# MySQL database username 
+SetEnv DB_USER root
+
+# MySQL database password 
+SetEnv DB_PASSWORD 
+
+# MySQL hostname 
+SetEnv DB_HOST localhost
+
+# for db.php
+SetEnv DB_DSN mysql:dbname=wilk0146;host=localhost
