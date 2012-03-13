@@ -1,6 +1,7 @@
 // JavaScript Document
 
 function setMarker(lat, long, title) {
+	console.log(title);
 	var myLatlng = new google.maps.LatLng(lat, long)
 	var marker = new google.maps.Marker({
 		position: myLatlng,

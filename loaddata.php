@@ -28,7 +28,7 @@ if ($civic->attributes()->name == "LEGAL_ADDR") {
 //
 }
 //
-//
+ echo ' All Done ';
 //
 //
 // to debug SQL errors

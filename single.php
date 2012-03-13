@@ -3,7 +3,7 @@
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id)) {
-	header('Location: index.php');
+	header('Location: list.php');
 	exit;
 };
 
@@ -12,9 +12,9 @@ require_once 'includes/db.php';
 
 // prepare() creates a stored procedure 
 $sql = $db->prepare('
-	SELECT id, title, release_date, director
-	FROM movies
-	WHERE id = :id
+	SELECT id, name, longitude, latitude, address 
+		FROM gardens 
+		WHERE id = :id
 ');
 
 
@@ -22,13 +22,13 @@ $sql->bindValue(':id', $id, PDO::PARAM_INT);
 
 // executes the stored procedure
 $sql->execute();
-// gets the results from the quey and put it into the variable
+// gets the results from the query and put it into the variable
 // fetch() is for one result
 // fetchAll is if we expect more than one result
 $results = $sql->fetch();
 
 if (empty($results)) {
-	header('Location: index.php');
+	header('Location: list.php');
 	exit;
 };
 
@@ -39,14 +39,14 @@ if (empty($results)) {
 <html>
 <head>
 <meta charset="utf-8">
-<title><?php echo $results['title'];?> &middot; Movies</title>
+<title><?php echo $results['name'];?> &middot; Movies</title>
 	<link href="css/general.css" rel="stylesheet">
 </head>
 
 <body>
-	<h1><?php echo $results['title'];?></h1>
-	<p>Release Date: <?php echo $results['release_date']; ?></p>
-	<p>Director: <?php echo $results['director']; ?></p>
+	<h1><?php echo $results['name'];?></h1>
+	<p>Longitude: <?php echo $results['longitude']; ?></p>
+	<p>Latitude: <?php echo $results['latitude']; ?></p>
 
 </body>
 </html>

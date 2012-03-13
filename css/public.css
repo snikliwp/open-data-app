@@ -25,8 +25,28 @@ Tags: Ottawa Museums
 }
 
 /* -------------------------------------- */
+/*.grid-row {
+	width: 100%;
+	clear: both;
+}
+.grid-unit {
+	width: 25%;
+}
 
+.grid-unit-double {
+	width: 50%;
+	background-color: #fff;
+}
+.grid-unit-triple {
+	width: 75%;
+	background-color: #fff;
+}
+.grid-unit-quad {
+	width: 100%;
+	background-color: #fff;
+}
 
+*/
 
 /**
  *  @section  General
@@ -34,28 +54,34 @@ Tags: Ottawa Museums
 
 
 html {
-	height: 100% 
 	}
+	
 body {
-	height: 100%; 
 	margin: 0; 
 	padding: 0 
 	}
+	
 #map_canvas {
-	height: 100% 
+	width: 450px;
+	height: 400px;
 	}
 
 
 
+.menu {
+}
+
+
+.grid-unit-single, 
+.grid-unit-triple {
+	padding: 5em;
+	float: left;
+}
 
 
 
 
-
-
-
-
-.body {
+/*.body {
 	margin-top: 1em;
 	padding: 2em;
 	width: 1000px;
@@ -67,8 +93,8 @@ body {
 	margin-left: 20em;
 	
 }
-
-.name,
+*/
+/*.name,
 .latitude,
 .longitude,
 .address {
@@ -80,6 +106,6 @@ a {
 	text-decoration:none;
 }
 
-
+*/
 
 
