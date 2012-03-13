@@ -39,7 +39,7 @@ if (empty($results)) {
 <html>
 <head>
 <meta charset="utf-8">
-<title><?php echo $results['name'];?> &middot; Movies</title>
+<title><?php echo $results['name'];?> &middot; Garden</title>
 	<link href="css/general.css" rel="stylesheet">
 </head>
 
@@ -47,6 +47,8 @@ if (empty($results)) {
 	<h1><?php echo $results['name'];?></h1>
 	<p>Longitude: <?php echo $results['longitude']; ?></p>
 	<p>Latitude: <?php echo $results['latitude']; ?></p>
+	
+	<a href="index.php"><button class="return">Return</button></a>
 
 </body>
 </html>

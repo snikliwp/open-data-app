@@ -19,7 +19,7 @@ $results = $db->query('SELECT id, name, longitude, latitude, address
 <body>
 <h2>Admin Page</h2>
 	<a href="admin/add.php"><button class="add">Add a New Garden</button></a>
-	<a href="list.php"><button class="logout">Logout</button></a>
+	<a href="index.php"><button class="logout">Logout</button></a>
 
 
 		<table border="3">

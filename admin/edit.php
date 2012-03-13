@@ -10,6 +10,7 @@ if(empty($id)){
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $longitude = filter_input(INPUT_POST, 'longitude', FILTER_SANITIZE_STRING);
 $latitude = filter_input(INPUT_POST, 'latitude', FILTER_SANITIZE_STRING);
+$address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -22,11 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if(empty($latitude)) {
 		$errors['latitude'] = true;
 	}
+	if(empty($address)) {
+		$errors['address'] = true;
+	}
 	if(empty($errors)) {
 	require_once '../includes/db.php';
 	$sql = $db-> prepare('
 		UPDATE gardens 
-		SET name= :name, longitude= :longitude, latitude= :latitude
+		SET name= :name, longitude= :longitude, latitude= :latitude, address= :address
 		WHERE id =:id
 		');
 	
@@ -34,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql->bindValue(':name', $name, PDO::PARAM_STR);
 	$sql->bindValue(':longitude', $longitude, PDO::PARAM_STR);
 	$sql->bindValue(':latitude', $latitude, PDO::PARAM_STR);
+	$sql->bindValue(':address', $address, PDO::PARAM_STR);
 	$sql->bindValue(':id', $id, PDO::PARAM_INT);
 	$sql->execute();
 	
@@ -47,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		// prepare() creates a stored procedure 
 		$sql = $db->prepare('
-			SELECT id, name, longitude, latitude
+			SELECT id, name, longitude, latitude, address
 			FROM gardens
 			WHERE id = :id
 		');
@@ -65,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$name = $results['name'];
 			$longitude = $results['longitude'];
 			$latitude = $results['latitude'];
+			$address = $results['address'];
 			
 			
 			
@@ -98,7 +104,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<label for= "latitude">Garden Latitude <?php if(isset($errors['latitude'])) : ?> <strong>is Required</strong><?php endif; ?></label>
 		<input type="date" id="latitude" name="latitude" value="<?php echo $latitude; ?>" required>
 	</div>
+	<div class="address">
+		<label for= "address">Garden Address <?php if(isset($errors['address'])) : ?> <strong>is Required</strong><?php endif; ?></label>
+		<input type="date" id="address" name="address" value="<?php echo $address; ?>" required>
+	</div>
 	<button type="submit">Submit</button>
+	
+	<a href="admin.php"><button class="cancel">Cancel</button></a>
+
 </form>
 
 
