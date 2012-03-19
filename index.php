@@ -5,7 +5,7 @@ require_once 'includes/db.php';
 // When using ->query(), the results variable isn't a real array, its an iterable object
 //  Therefore, after the first loop has completed, it isn't being reset to the start
 // By calling the ->fetchAll() method on the variable, we get a real array, and can loop multiple times.
-$stmt = $db->query('SELECT id, name, longitude, latitude, address 
+$stmt = $db->query('SELECT id, name, longitude, latitude, address, response, count 
 				FROM gardens 
 				ORDER BY name ASC');
 $results = $stmt->fetchAll();
@@ -26,7 +26,7 @@ $results = $stmt->fetchAll();
 		function initialize() {
 			var myOptions = {
 			center: new google.maps.LatLng(45.401, -75.692),
-			zoom: 10,
+			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.HYBRID
 			};
 		map = new google.maps.Map(document.getElementById("map_canvas"),
@@ -41,38 +41,48 @@ $results = $stmt->fetchAll();
 	<body onload="initialize()">
 	<body>
 	<div class="grid-row clearfix">
-			<div class="grid-unit grid-unit-single">
+			<div class="grid-unit grid-unit-double">
 			<div class="menu">
 				<h2>Gardens</h2>
-				<table class='main'>
+				<table class='main' border=1>
 					<tbody>
 					<nav>
 								<?php foreach ($results as $garden) : ?>
-								<?php echo '<tr> <td>' ?>
-								 <a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
-								<?php echo '</td> </tr>' ?>
-								<?php endforeach ?>
+									<?php echo '<tr><td>' ?>
+									<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
+									 <?php echo '</td><td>'?>
+									 <ul id="garden-<?php echo $garden['id'];?>">
+										 <li class="star1 ">★</li>
+										 <li class="star2 ">★</li>
+										 <li class="star3 ">★</li>
+										 <li class="star4 ">★</li>
+										 <li class="star5 ">★</li>
+									 </ul>
+									 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);</script>
+									 <?php echo '</td><td>'?>
+									<a href="rate.php?id=<?php echo $garden['id'];?>">Rate This Location</a>
+									 <?php echo '</td></tr>'?>
+								<?php endforeach?>
 					</nav>
 					</tbody>
 				</table>
 			</div> <!-- end class menu -->
 		</div> <!-- end class grid-unit-single -->
 
-
-	
-	
-		<div class="grid-unit grid-unit-triple">
-			<a href="admin.php"><button class="add">Admin Login</button></a>
-			<br>
-			<div id="map_canvas" ></div>
-				<script type="text/javascript">
-					function afterInit() {
-					<?php foreach ($results as $garden) : ?>
-						setMarker(<?php echo $garden['latitude'];?>, <?php echo $garden['longitude'];?>, "<?php echo $garden['name'];?>");
-					<?php  endforeach ?>
-					} // end function afterInit
-				</script>
-		</div>	<!-- end class grid-unit-triple -->	
+		<div class="map">
+			<div class="grid-unit grid-unit-double">
+				<a href="admin.php"><button class="add">Admin Login</button></a>
+				<br>
+				<div id="map_canvas" ></div>
+					<script type="text/javascript">
+						function afterInit() {
+						<?php foreach ($results as $garden) : ?>
+							setMarker(<?php echo $garden['latitude'];?>, <?php echo $garden['longitude'];?>, "<?php echo $garden['name'];?>", <?php echo $garden['id'];?> );
+						<?php  endforeach ?>
+						} // end function afterInit
+					</script>
+			</div>	<!-- end class grid-unit-triple -->	
+		</div>	<!-- end class map-->
 	</div>	<!-- end class grid-row -->	
 
 

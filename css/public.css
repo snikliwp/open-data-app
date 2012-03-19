@@ -34,19 +34,37 @@ Tags: Ottawa Museums
 }
 
 .grid-unit-double {
-	width: 50%;
-	background-color: #fff;
+	width: 48%;
+	background-color: #888;
+	height: 1000px;
+	position: relative;
+	
 }
+a {
+	text-decoration: none;
+}
+
+
 .grid-unit-triple {
-	width: 75%;
+	width: 73%;
 	background-color: #fff;
 }
 .grid-unit-quad {
-	width: 100%;
+	width: 98%;
 	background-color: #fff;
 }
-
 */
+.menu {
+	overflow-y: scroll;
+	height: 1000px;
+	width: 580px;
+	float: left;
+}
+.map {
+	overflow-y: scroll;
+	height: 1000px;
+	width: 250px;
+}
 
 /**
  *  @section  General
@@ -62,8 +80,11 @@ body {
 	}
 	
 #map_canvas {
-	width: 450px;
-	height: 400px;
+	position: absolute;
+	top: 5em;
+	right: 0;
+	bottom: 0;
+	left: 700px;
 	}
 
 
@@ -73,14 +94,28 @@ body {
 
 
 .grid-unit-single, 
+.grid-unit-double,
 .grid-unit-triple {
-	padding: 5em;
+	padding-left: 2%;
 	float: left;
 }
 
+ul { 
+	font-size: 1.5em;
+	margin: 0;
+	padding: 0;
+	
+}
 
+ul li {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+}
 
-
+.rated {
+	color: #FC0;
+}
 /*.body {
 	margin-top: 1em;
 	padding: 2em;
