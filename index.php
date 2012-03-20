@@ -49,7 +49,9 @@ include 'includes/theme-top.php';
 								 <li class="star4 ">★</li>
 								 <li class="star5 ">★</li>
 							 </ul>
-							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);</script>
+							 console.log(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
+							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
+							 </script>
 							 <?php echo '</td><td>'?>
 							<a href="rate.php?id=<?php echo $garden['id'];?>">Rate</a>
 							 <?php echo '</td></tr>'?>

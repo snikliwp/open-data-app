@@ -15,7 +15,7 @@ function setMarker(lat, long, title, id) {
 
 
 function setStars(id, count, response) {
-	console.log("this is response count", id, response, count);
+	console.log("this is id response count", id, response, count);
 console.log("this is math round response/count", Math.round(response / count));
 	if (Math.round(response / count) >= 1 ){
 		$('.star1', $('#garden-' + id)).addClass('rated');

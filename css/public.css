@@ -107,9 +107,12 @@ body {
 #smap {
 	height: 300px;
 	width: 385px;
-	top: center;
+	margin: auto;
 	}
-
+	
+.rate p {
+	text-align: center;
+}
 
 .main tbody td:nth-last-child(1){
 	font-size: .75em;

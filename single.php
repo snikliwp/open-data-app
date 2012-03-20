@@ -47,22 +47,36 @@ include 'includes/theme-top.php';
 	map = new google.maps.Map(document.getElementById("smap"),
 	myOptions);
 	};
-	afterload();
+//	afterInit();
 </script>
 </head>
 
 <body onLoad="initialize()">
 	<div class="masthead">
 		<h1><?php echo $results['name'];?></h1>
-		<h2><?php echo $results['address']; ?></h2>
+		<h2><?php echo $results['address'];?></h2>
 	</div> <!-- end class masthead -->
-	<div id="smap">
+	<div id="smap"></div>
 		<script type="text/javascript">
-		function afterload() {
-			setMarker(<?php echo $results['latitude'];?>, <?php echo $results['longitude'];?>, "<?php echo $results['name'];?>", <?php echo $results['id'];?> );
-			} // end function afterload
+			function afterInit() {
+				setMarker(<?php echo $results['latitude'];?>, <?php echo $results['longitude'];?>, "<?php echo $results['name'];?>", <?php echo $results['id'];?> );
+				} // end function afterInit
 		</script>
 	</div>	<!-- end class smap -->
+	<div class="rate">
+		<p>Select the rating you wish to accord this site.</p>
+		<div class="stars">
+			 <ul id="garden-<?php echo $results['id'];?>">
+				 <li class="star1 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=1">★</a></li>
+				 <li class="star2 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=2">★</a></li>
+				 <li class="star3 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=3">★</a></li>
+				 <li class="star4 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=4">★</a></li>
+				 <li class="star5 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=5">★</a></li>
+			 </ul>
+		</div><!-- end class stars -->
+
+	</div>	<!-- end class rate -->
+	
 	<a href="index.php"><button class="return">Return</button></a>
 <?php
 

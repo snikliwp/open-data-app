@@ -44,7 +44,9 @@ include 'includes/theme-top.php';
 		<h1><?php echo $results['name'];?></h1>
 		<h2><?php echo $results['address']; ?></h2>
 	</div> <!-- end class masthead -->
-	<p>Select the rating you wish to accord this site.</p>
+	<div class="rate">
+		<p>Select the rating you wish to accord this site.</p>
+	</div>
 	<div class="stars">
 		 <ul id="garden-<?php echo $results['id'];?>">
 			 <li class="star1 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=1">★</a></li>
