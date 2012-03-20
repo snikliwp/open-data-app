@@ -3,7 +3,7 @@
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id)) {
-	header('Location: list.php');
+	header('Location: index.php');
 	exit;
 };
 
@@ -12,7 +12,7 @@ require_once 'includes/db.php';
 
 // prepare() creates a stored procedure 
 $sql = $db->prepare('
-	SELECT id, name, longitude, latitude, address 
+	SELECT id, name, longitude, latitude, address, response, count 
 		FROM gardens 
 		WHERE id = :id
 ');
@@ -28,28 +28,44 @@ $sql->execute();
 $results = $sql->fetch();
 
 if (empty($results)) {
-	header('Location: list.php');
+	header('Location: index.php');
 	exit;
 };
-
+include 'includes/theme-top.php';
 
 ?>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
 <title><?php echo $results['name'];?> &middot; Garden</title>
-	<link href="css/general.css" rel="stylesheet">
+<script type="text/javascript">
+	var map
+	function initialize() {
+		var myOptions = {
+		center: new google.maps.LatLng(<?php echo $results['latitude'];?>, <?php echo $results['longitude'];?>),
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+	map = new google.maps.Map(document.getElementById("smap"),
+	myOptions);
+	};
+	afterload();
+</script>
 </head>
 
-<body>
-	<h1><?php echo $results['name'];?></h1>
-	<p>Longitude: <?php echo $results['longitude']; ?></p>
-	<p>Latitude: <?php echo $results['latitude']; ?></p>
-	<p>Address: <?php echo $results['address']; ?></p>
-	
+<body onload="initialize()">
+	<div class="masthead">
+		<h1><?php echo $results['name'];?></h1>
+	<h2><?php echo $results['address']; ?></h2>
+	</div> <!-- end class masthead -->
+	<div id="smap">
+		<script type="text/javascript">
+		function afterload() {
+			setMarker(<?php echo $results['latitude'];?>, <?php echo $results['longitude'];?>, "<?php echo $results['name'];?>", <?php echo $results['id'];?> );
+			} // end function afterload
+		</script>
+	</div>	<!-- end class smap -->
 	<a href="index.php"><button class="return">Return</button></a>
+<?php
 
-</body>
-</html>
+include 'includes/theme-bottom.php';
+
+?>

@@ -24,56 +24,65 @@ Tags: Ottawa Museums
 	clear: both;
 }
 
-/* -------------------------------------- */
-/*.grid-row {
-	width: 100%;
-	clear: both;
+a span:hover,
+a span:focus,
+a span:active {
+	color: #007ca5;
 }
-.grid-unit {
-	width: 25%;
+a,
+a:link,
+a:visited {
+	display: inline;
+	margin:0;
+	padding: 2px;
+	Color: #000;
+	text-decoration:none;
+	zoom: 1;
+}
+a:hover,
+a:focus,
+a:active {
+	background-color: #9e0b0f;
+	color: #FFF;
+}
+table
+{
+border-collapse:collapse;
+}
+table,th, td
+{
+border: 1px solid black;
+}
+/* -------------------------------------- */
+.masthead {
+	text-align: center;
 }
 
-.grid-unit-double {
-	width: 48%;
-	background-color: #888;
-	height: 1000px;
-	position: relative;
-	
-}
 a {
+	list-style-type: none;
 	text-decoration: none;
 }
 
-
-.grid-unit-triple {
-	width: 73%;
-	background-color: #fff;
-}
-.grid-unit-quad {
-	width: 98%;
-	background-color: #fff;
-}
-*/
 .menu {
 	overflow-y: scroll;
-	height: 1000px;
-	width: 580px;
+	height: 500px;
+	width: 470px;
 	float: left;
 }
-.map {
-	overflow-y: scroll;
-	height: 1000px;
-	width: 250px;
-}
 
-/**
- *  @section  General
- */
+body {
+	height: 600px;
+	width: 1100px;
+	margin: 1em auto;
+	background-color: #fff;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 
-
-html {
-	}
+}	
 	
+	
+	}
+
+html,
 body {
 	margin: 0; 
 	padding: 0 
@@ -84,24 +93,34 @@ body {
 	top: 5em;
 	right: 0;
 	bottom: 0;
-	left: 700px;
+	left: 540px;
+	height: 500px;
+	width: 585px;
+	}
+	
+#smap {
+	height: 300px;
+	width: 385px;
+	top: center;
 	}
 
 
-
-.menu {
+.main tbody td:nth-last-child(1){
+	font-size: .75em;
+}
+.admin {
+	float: right;
+	padding: .5em 1em 0 0;
 }
 
-
-.grid-unit-single, 
-.grid-unit-double,
-.grid-unit-triple {
+.map,
+.menu {
 	padding-left: 2%;
 	float: left;
 }
 
 ul { 
-	font-size: 1.5em;
+	font-size: .5em;
 	margin: 0;
 	padding: 0;
 	
@@ -116,31 +135,4 @@ ul li {
 .rated {
 	color: #FC0;
 }
-/*.body {
-	margin-top: 1em;
-	padding: 2em;
-	width: 1000px;
-	background-color: #fff;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
-	margin-left:auto;
-	margin-right:auto;
-	min-height: 800px;
-	margin-left: 20em;
-	
-}
-*/
-/*.name,
-.latitude,
-.longitude,
-.address {
-	text-align: left;
-	column-width: 25 em;
-}
-
-a {
-	text-decoration:none;
-}
-
-*/
-
 
