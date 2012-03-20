@@ -51,10 +51,10 @@ include 'includes/theme-top.php';
 </script>
 </head>
 
-<body onload="initialize()">
+<body onLoad="initialize()">
 	<div class="masthead">
 		<h1><?php echo $results['name'];?></h1>
-	<h2><?php echo $results['address']; ?></h2>
+		<h2><?php echo $results['address']; ?></h2>
 	</div> <!-- end class masthead -->
 	<div id="smap">
 		<script type="text/javascript">

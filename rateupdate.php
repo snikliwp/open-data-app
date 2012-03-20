@@ -28,3 +28,5 @@ $sql = $db->prepare('
 	
 	header('Location: index.php');
 	exit;
+	
+include 'includes/theme-bottom.php';

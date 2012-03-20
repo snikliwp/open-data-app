@@ -88,12 +88,18 @@ body {
 	padding: 0 
 	}
 	
-#map_canvas {
+.map {
+	position: relative;
+	height: 500px;
+	width: 585px;
+}
+
+.map_can {
 	position: absolute;
-	top: 5em;
-	right: 0;
-	bottom: 0;
-	left: 540px;
+	top: 0px;
+	right: 5px;
+	bottom: 0px;
+	left: 0px;
 	height: 500px;
 	width: 585px;
 	}
@@ -112,15 +118,23 @@ body {
 	float: right;
 	padding: .5em 1em 0 0;
 }
-
-.map,
 .menu {
 	padding-left: 2%;
+	
+}
+.map,
+.menu {
 	float: left;
 }
 
 ul { 
 	font-size: .5em;
+	margin: 0;
+	padding: 0;
+	
+}
+.stars ul { 
+	font-size: 1.5em;
 	margin: 0;
 	padding: 0;
 	

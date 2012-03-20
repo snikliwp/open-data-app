@@ -29,37 +29,37 @@ include 'includes/theme-top.php';
 	</script>
 </head>
 
-<body onload="initialize()">
+<body onLoad="initialize()">
 	<div class="masthead">
 		<h1>Ottawa Community Gardens</h1>
 	</div> <!-- end Class Masthead -->
-	<div class="page clearfix">
+	<div class="page">
 		<div class="menu">
 			<table class='main' border=1>
 				<tbody>
 					<nav>
-							<?php foreach ($results as $garden) : ?>
-								<?php echo '<tr><td>' ?>
-								<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
-								 <?php echo '</td><td>'?>
-								 <ul id="garden-<?php echo $garden['id'];?>">
-									 <li class="star1 ">★</li>
-									 <li class="star2 ">★</li>
-									 <li class="star3 ">★</li>
-									 <li class="star4 ">★</li>
-									 <li class="star5 ">★</li>
-								 </ul>
-								 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);</script>
-								 <?php echo '</td><td>'?>
-								<a href="rate.php?id=<?php echo $garden['id'];?>">Rate</a>
-								 <?php echo '</td></tr>'?>
-							<?php endforeach?>
+						<?php foreach ($results as $garden) : ?>
+							<?php echo '<tr><td>' ?>
+							<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
+							 <?php echo '</td><td>'?>
+							 <ul id="garden-<?php echo $garden['id'];?>">
+								 <li class="star1 ">★</li>
+								 <li class="star2 ">★</li>
+								 <li class="star3 ">★</li>
+								 <li class="star4 ">★</li>
+								 <li class="star5 ">★</li>
+							 </ul>
+							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);</script>
+							 <?php echo '</td><td>'?>
+							<a href="rate.php?id=<?php echo $garden['id'];?>">Rate</a>
+							 <?php echo '</td></tr>'?>
+						<?php endforeach?>
 					</nav>
 				</tbody>
 			</table>
 		</div> <!-- end class menu -->
-		<div class="map clearfix">
-			<div id="map_canvas" ></div>
+		<div class="map">
+			<div id="map_canvas" class="map_can" ></div>
 				<script type="text/javascript">
 					function afterInit() {
 					<?php foreach ($results as $garden) : ?>
