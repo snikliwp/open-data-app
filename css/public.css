@@ -70,6 +70,16 @@ a {
 	float: left;
 }
 
+html {
+	background-color: #ddd;
+}
+
+html,
+body {
+	margin: 0; 
+	padding: 0 
+	}
+
 body {
 	height: 600px;
 	width: 1100px;
@@ -80,13 +90,9 @@ body {
 }	
 	
 	
-	}
-
-html,
-body {
-	margin: 0; 
-	padding: 0 
-	}
+.mainout {
+		border: solid 2px #C93;
+}
 	
 .map {
 	position: relative;
@@ -102,16 +108,19 @@ body {
 	left: 0px;
 	height: 500px;
 	width: 585px;
+	border: solid 2px #C93;
 	}
 	
 #smap {
 	height: 300px;
 	width: 385px;
 	margin: auto;
+	border: solid 2px #C93;
 	}
 	
 .rate p {
 	text-align: center;
+	padding: 0;
 }
 
 .main tbody td:nth-last-child(1){
@@ -130,7 +139,7 @@ body {
 	float: left;
 }
 
-ul { 
+table ul { 
 	font-size: .5em;
 	margin: 0;
 	padding: 0;
@@ -138,9 +147,25 @@ ul {
 }
 .stars ul { 
 	font-size: 1.5em;
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	
+}
+.stars { 
+	margin: auto;
+	text-align: center;
+	
+}
+
+.setup ul {
+	margin:0;
+}
+
+.setup ul li {
+	list-style-type: none;
+	display: block;
+	margin:0;
+	text-align: center;
 }
 
 ul li {
@@ -152,4 +177,16 @@ ul li {
 .rated {
 	color: #FC0;
 }
+
+.return {
+	text-align: center; 
+	margin: auto;
+	
+	}
+.return a {
+	text-align: center; 
+	border: solid 1px #000;
+	background-color: #ccc;
+	
+	}
 

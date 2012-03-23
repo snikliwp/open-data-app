@@ -35,21 +35,20 @@ include 'includes/theme-top.php';
 	</div> <!-- end Class Masthead -->
 	<div class="page">
 		<div class="menu">
-			<table class='main' border=1>
+			<table class='main'>
 				<tbody>
 					<nav>
 						<?php foreach ($results as $garden) : ?>
 							<?php echo '<tr><td>' ?>
 							<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
 							 <?php echo '</td><td>'?>
-							 <ul id="garden-<?php echo $garden['id'];?>">
+							 <ul id="garden-<?php echo $garden['id'];?>" class="garden">
 								 <li class="star1 ">★</li>
 								 <li class="star2 ">★</li>
 								 <li class="star3 ">★</li>
 								 <li class="star4 ">★</li>
 								 <li class="star5 ">★</li>
 							 </ul>
-							 console.log(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
 							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
 							 </script>
 							 <?php echo '</td><td>'?>

@@ -41,13 +41,13 @@ include 'includes/theme-top.php';
 	function initialize() {
 		var myOptions = {
 		center: new google.maps.LatLng(<?php echo $results['latitude'];?>, <?php echo $results['longitude'];?>),
-		zoom: 13,
+		zoom: 17,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 	map = new google.maps.Map(document.getElementById("smap"),
 	myOptions);
+	afterInit();
 	};
-//	afterInit();
 </script>
 </head>
 
@@ -65,6 +65,12 @@ include 'includes/theme-top.php';
 	</div>	<!-- end class smap -->
 	<div class="rate">
 		<p>Select the rating you wish to accord this site.</p>
+		<div class="setup">
+			<ul class="">
+				<li>poor............Average.............excellent</li>
+				<li>1 ..... 2 ..... 3 ..... 4 ..... 5</li>
+			</ul>
+		</div>	<!-- end class setup -->
 		<div class="stars">
 			 <ul id="garden-<?php echo $results['id'];?>">
 				 <li class="star1 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=1">★</a></li>
@@ -76,8 +82,9 @@ include 'includes/theme-top.php';
 		</div><!-- end class stars -->
 
 	</div>	<!-- end class rate -->
-	
-	<a href="index.php"><button class="return">Return</button></a>
+	<div class="return">
+		<a href="index.php">RETURN</a>
+	</div>
 <?php
 
 include 'includes/theme-bottom.php';
