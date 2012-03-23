@@ -67,7 +67,7 @@ include 'includes/theme-top.php';
 		<p>Select the rating you wish to accord this site.</p>
 		<div class="setup">
 			<ul class="">
-				<li>poor............Average.............excellent</li>
+				<li>Poor........Average...Excellent</li>
 				<li>1 ..... 2 ..... 3 ..... 4 ..... 5</li>
 			</ul>
 		</div>	<!-- end class setup -->

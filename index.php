@@ -35,8 +35,8 @@ include 'includes/theme-top.php';
 	</div> <!-- end Class Masthead -->
 	<div class="page">
 		<div class="menu">
-			<table class='main'>
-				<tbody>
+			<table >
+				<tbody class='main'>
 					<nav>
 						<?php foreach ($results as $garden) : ?>
 							<?php echo '<tr><td>' ?>
@@ -52,7 +52,7 @@ include 'includes/theme-top.php';
 							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
 							 </script>
 							 <?php echo '</td><td>'?>
-							<a href="rate.php?id=<?php echo $garden['id'];?>">Rate</a>
+							<a href="single.php?id=<?php echo $garden['id'];?>">Rate</a>
 							 <?php echo '</td></tr>'?>
 						<?php endforeach?>
 					</nav>
@@ -71,6 +71,14 @@ include 'includes/theme-top.php';
 		</div>	<!-- end class map-->
 	</div>	<!-- end class page -->	
 	<footer>
+		<div class="sort">
+			<label for="sort">Sort</label>
+			<select id= id="sort" name="sort">
+				<option>Alphabetically</option>
+				<option>Rating</option>
+				<option>Closest</option>
+			</select>
+		</div> <!-- end class sort -->
 		<div class="admin">
 			<a href="admin.php"><button class="add">Admin Login</button></a>
 		</div> <!-- end class admin -->
