@@ -80,7 +80,7 @@ include 'includes/theme-top.php';
 			</select>
 		</div> <!-- end class sort -->
 		<div class="admin">
-			<a href="admin.php"><button class="add">Admin Login</button></a>
+			<a href="admin/admin.php"><button class="add">Admin Login</button></a>
 		</div> <!-- end class admin -->
 	</footer>
 <?php

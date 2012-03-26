@@ -1,10 +1,17 @@
 <?php 
 	require_once '../includes/filter-wrapper.php';
 
+	require_once '../includes/users.php';
+	if(!user_is_signed_in()){
+		header('location: sign-in.php');
+		exit;
+	}
+
+
 $errors = array();
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if(empty($id)){
-	header('Location: ../admin.php');
+	header('Location: admin.php');
 }
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -42,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql->bindValue(':id', $id, PDO::PARAM_INT);
 	$sql->execute();
 	
-	header('Location: ../admin.php');
+	header('Location: admin.php');
 	exit;
 	}
 	

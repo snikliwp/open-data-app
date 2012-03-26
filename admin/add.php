@@ -1,6 +1,14 @@
 <?php 
 	require_once '../includes/filter-wrapper.php';
 
+	require_once '../includes/users.php';
+	if(!user_is_signed_in()){
+		header('location: sign-in.php');
+		exit;
+	}
+
+
+
 $errors = array();
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $latitude = filter_input(INPUT_POST, 'latitude', FILTER_SANITIZE_STRING);
@@ -30,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql->bindValue(':longitude', $longitude, PDO::PARAM_STR);
 	$sql->execute();
 	
-	header('Location: ../admin.php');
+	header('Location: admin.php');
 	exit;
 	}
 	

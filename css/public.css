@@ -71,6 +71,35 @@ a {
 	border: solid 2px #C93;
 
 }
+
+.menu2 p {
+	margin: 0;
+	padding: 0;
+	
+}
+
+.menu2 {
+	overflow-y: scroll;
+	height: 580px;
+	width: 1080px;
+	float: left;
+	border: solid 2px #C93;
+	margin-left: 10px;
+
+}
+
+.titles {
+	font-weight: bold;
+	margin: 10px 0 0 10px;
+	padding: 0;
+
+	
+}
+.titles ul {
+	margin: 0;
+	padding: 0;
+}
+	
 html {
 	background-color: #ddd;
 }
