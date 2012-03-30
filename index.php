@@ -1,4 +1,15 @@
 <?php 
+/**
+ * This file displays the list and map of the open data set
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <>
+ * @version:	1.0.0
+ **/
+
 	require_once 'includes/filter-wrapper.php';
 require_once 'includes/db.php';
 
