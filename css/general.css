@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul,
+.tab-group,
+page,
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+.tab-buttons {
+	width: 900px;
+	margin: auto;
+}
+
+
+body {
+	font: normal 100%/1.5 sans-serif;
+	background-color: #ccc;
+	color: #555;
+	
+}
+
+.innerlist li {
+	padding-left: 3em;
+	
+}
+
+
+.smallbody {
+	margin-top: 1em;
+	padding: 2em;
+	width: 1000px;
+	background-color: #fff;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+	margin-left:auto;
+	margin-right:auto;
+	min-height: 800px;
+	margin-left: 20em;
+	
+}
+
+
+#tab-1,
+#tab-2,
+#tab-3,
+#tab-4,
+#tab-5 {
+	min-width: 900px;
+}
+
+.tab-group {
+	width: 900px;
+	min-height: 100px;
+	margin: auto;
+	position: relative;
+	
+}
+
+h1 {
+	text-align: center;
+}
+
+.smlist,
+img,
+h2,
+p {
+	margin: 1em;
+}
+
+ul {
+	margin: auto;
+	text-decoration:none;
+	list-style: none;
+}
+
+div {
+	position: absolute;
+	min-height: 100px;
+	margin: auto;
+}
+
+
+nav li {
+	display: inline-block;
+}
+
+/*.smlist {
+	text-decoration:none;
+}
+*/.page {
+	background-color: #FFC;
+	display: none;
+	margin-top: -3px;
+	min-height: 650px;
+}
+
+.current {
+	display: block;
+	border: solid 3px #9e0b0f;
+}
+
+nav .current {
+	border-bottom: 0;
+	z-index: 100;
+	position: relative;
+}
+
+nav a span:hover,
+nav a span:focus,
+nav a span:active {
+	color: #007ca5;
+	border: solid 3px #9e0b0f;
+}
+nav a,
+nav a:link,
+nav a:visited {
+	display: inline-block;
+	margin:0;
+	padding: 0.75em 30px;
+	background-color: #FFC;
+	Color: #000;
+	font-weight:bold;
+	text-decoration:none;
+	zoom: 1;
+}
+nav a:hover,
+nav a:focus,
+nav a:active {
+	background-color: #9e0b0f;
+	color: white;
+}
+
