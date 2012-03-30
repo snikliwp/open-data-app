@@ -1,5 +1,4 @@
-	Application Summary
-	-------------------
+	##Application Summary
 	This application provides a list of all community gardens in the city of Ottawa.
 	It presents the information in two ways, as a list and as a marker on a map. 
 	Selecting either will take the user to a single page where detailed information of the garden is available.
@@ -12,8 +11,7 @@
 	access pages that are protected from unauthorized use.
 	It also provides the administrator to add additional administrators to the database.
 	
-	Installation Instructions
-	--------------------------
+	##Installation Instructions
 	This application was originally installed in WAMP.
 	The data structure should be installed in the root directory with the subdirectories and their files
 	installed as they reside in the repository.
@@ -30,25 +28,21 @@
 	By opening a file called 'loaddata.php', located in the root folder, all the data will be loaded into the database.
 	The application should now be ready for use.
 	
-	Links
-	-----
-	- Github Repository			https://github.com/snikliwp/mtm1531-open-data-app
-	- PHPFOG Repository			git@git01.phpfog.com:gardens.phpfogapp.com
-	- PHPFOG Application		http://gardens.phpfogapp.com/index.php
-	- Design Brief				http://snikliwp.github.com/mtm1531-open-data-app
-	- City of Ottawa Dataset	http://ottawa.ca/online_services/opendata/info/index_en.html#c 
+	##Links
+	- Github Repository			<https://github.com/snikliwp/mtm1531-open-data-app>
+	- PHPFOG Repository			<git@git01.phpfog.com:gardens.phpfogapp.com>
+	- PHPFOG Application		<http://gardens.phpfogapp.com/index.php>
+	- Design Brief				<http://snikliwp.github.com/mtm1531-open-data-app>
+	- City of Ottawa Dataset	<http://ottawa.ca/online_services/opendata/info/index_en.html#c> 
 	- Author					wilk0146@algonquinlive.com
 
-	Version
-	-------
+	##Version
 	1.0.0
 
-	Copyright
-	---------
+	##Copyright
 	March 2012 Pat Wilkins
 
-	License
-	-------
+	##License
 	
 	
 	
