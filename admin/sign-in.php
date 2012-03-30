@@ -8,11 +8,9 @@ if(user_is_signed_in()) {
 	exit;
 }
 $errors = array();
-var_dump($errors);
 
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
-var_dump($email, $password);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -41,33 +39,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
+include '../includes/admin-theme-top.php';
 
 ?>
 
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
 <title>Sign In</title>
 </head>
 
 <body>
+	<div class="masthead">
+		<h1>Sign In</h1>
+	<br>
+	</div> <!-- end class masthead -->
 
+<div class="login">
 <form method="post" action="sign-in.php">
-	<div>
+	<div class="email">
 		<label for="email">Email Address</label>
 		<input type="email" id="email" name="email" required>
-	</div>
-	<div>
+	</div> <!-- end div email -->
+	<div class="password">
 		<label for="password">Password</label>
 		<input type="password" id="password" name="password" required>
-	</div>
-	<div>
+	</div> <!-- end div password -->
+	<div class="button">
 		<button type="submit">Sign In</button>
-	</div>
+	</div> <!-- end div button -->
 </form>
-
+</div> <!-- end div login -->
 
 </body>
 </html>

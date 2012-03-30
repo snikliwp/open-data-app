@@ -30,7 +30,7 @@ include 'includes/theme-top.php';
 		function initialize() {
 			var myOptions = {
 			center: new google.maps.LatLng(45.401, -75.692),
-			zoom: 13,
+			zoom: 11,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 		map = new google.maps.Map(document.getElementById("map_canvas"),
@@ -62,8 +62,6 @@ include 'includes/theme-top.php';
 							 </ul>
 							 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
 							 </script>
-							 <?php echo '</td><td>'?>
-							<a href="single.php?id=<?php echo $garden['id'];?>">Rate</a>
 							 <?php echo '</td></tr>'?>
 						<?php endforeach?>
 					</nav>
