@@ -19,8 +19,6 @@ if(!user_is_signed_in()) {
 	exit;
 }
 $errors = array();
-$email = '';
-$password = '';
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 
@@ -63,11 +61,11 @@ include '../includes/admin-theme-top.php';
 <form method="post" action="add-admin.php">
 	<div class="email">
 		<label for="email">Email Address</label>
-		<input type="email" id="email" name="email" required>
+		<input type="email" id="email" name="email" required placeholder="Enter an E-mail Address">
 	</div> <!-- end div email -->
 	<div class="password">
 		<label for="password">Password</label>
-		<input type="password" id="password" name="password" required>
+		<input type="password" id="password" name="password" required placeholder="Enter a Password">
 	</div> <!-- end div password -->
 	<div class="button">
 		<button type="submit">Add User</button>
