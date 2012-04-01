@@ -1,6 +1,6 @@
 <?php
 /**
- * This file gets and verifies the credentials of the user for access to the admin pages
+ * This file adds a new administrator id to the database
  *
  * @package:	Gardens
  * @copyright:	March 2012 Pat Wilkins
@@ -10,12 +10,12 @@
  * @version:	See Version.txt
  **/
 
-require_once '../includes/db.php';
-
 require_once '../includes/users.php';
+require_once '../includes/db.php';
+require_once '../includes/filter-wrapper.php';
 
-if(user_is_signed_in()) {
-	header('Location: admin.php');
+if(!user_is_signed_in()) {
+		header('location: sign-in.php');
 	exit;
 }
 $errors = array();
@@ -27,45 +27,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$errors['email'] = true;
 	}
-	
 	if (empty($password)) {
 		$errors['password'] = true;
 	}
-	
 	if (empty($errors)) {
 		$user = user_get($db, $email);
-		if (!empty($user)) {
-			if(passwords_match($password, $user['password'])) {
-				user_sign_in($user['id']);
-				header('Location: admin.php');
-			} else{
-			$errors['password-no-match'] = true;
-			}
-		} else {
-			$errors['user-non-existent'] = true;
+		if (empty($user)) {
+			user_create($db, $email, $password);
+			$errors['user-is-empty'] = true;
 		}
+//		header('Location: admin.php');
+//		exit;
 	}
-	
-	
-}
 
+}
+$results = $db->query('SELECT email 
+				FROM users 
+				ORDER BY email ASC');
 
 include '../includes/admin-theme-top.php';
 
 ?>
 
 
-<title>Sign In</title>
+<title>Add Admin</title>
 </head>
 
 <body>
 	<div class="masthead">
-		<h1>Sign In</h1>
-	<br>
+		<h1>Add a New Admin User</h1>
 	</div> <!-- end class masthead -->
 
 <div class="login">
-<form method="post" action="sign-in.php">
+<form method="post" action="add-admin.php">
 	<div class="email">
 		<label for="email">Email Address</label>
 		<input type="email" id="email" name="email" required>
@@ -75,10 +69,21 @@ include '../includes/admin-theme-top.php';
 		<input type="password" id="password" name="password" required>
 	</div> <!-- end div password -->
 	<div class="button">
-		<button type="submit">Sign In</button>
+		<button type="submit">Add User</button>
+		<a href="admin.php"><button>Finished</button></a>
 	</div> <!-- end div button -->
 </form>
 </div> <!-- end div login -->
+<div class="exist">
+<h3>Exisiting Administrators</h3>
+	<ul>
+		<?php foreach ($results as $email) : ?>
+			 <li><?php  echo $email['email']; ?> </li>
+		 <?php endforeach ?>
+	</ul>
+</div>
+
+
 
 </body>
 </html>

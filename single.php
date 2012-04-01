@@ -1,4 +1,17 @@
 <?php 
+/**
+ * This file displays a single record from the data base and also lets the
+ * user rate the gargen displayed
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
+
+
 	require_once 'includes/filter-wrapper.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);

@@ -1,4 +1,15 @@
 <?php 
+/**
+ * This file displays allows the edit of an existing record in the database
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
+
 	require_once '../includes/filter-wrapper.php';
 
 	require_once '../includes/users.php';
@@ -82,45 +93,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			
 		}
+include '../includes/admin-theme-top.php';
 
 ?>
 
-
-
-
-
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
 <title>Edit A Garden</title>
-	<link href="css/general.css" rel="stylesheet">
 </head>
+	<div class="masthead">
+		<h1>Edit a Garden Record</h1>
+	</div> <!-- end class masthead -->
 
 <body>
+<div class="addgarden">
 <form method="post" action="edit.php?id=<?php echo $id; ?>">
 	<div class="name">
 		<label for="name"> Garden Name <?php if(isset($errors['name'])) : ?> <strong>is Required</strong><?php endif; ?></label>
 		<input type="text" id="name" name="name" value="<?php echo $name; ?>" required>
-	</div>
+	</div> <!-- end class name -->
 	<div class="longitude">
 		<label for="longitude">Garden Longitude <?php if(isset($errors['longitude'])) : ?> <strong>is Required</strong><?php endif; ?></label>
 		<input type="text" id="longitude" name="longitude" value="<?php echo $longitude; ?>" required>
-	</div>
+	</div> <!-- end class longitude -->
 	<div class="latitude">
 		<label for= "latitude">Garden Latitude <?php if(isset($errors['latitude'])) : ?> <strong>is Required</strong><?php endif; ?></label>
 		<input type="date" id="latitude" name="latitude" value="<?php echo $latitude; ?>" required>
-	</div>
+	</div> <!-- end class latitude -->
 	<div class="address">
 		<label for= "address">Garden Address <?php if(isset($errors['address'])) : ?> <strong>is Required</strong><?php endif; ?></label>
 		<input type="date" id="address" name="address" value="<?php echo $address; ?>" required>
-	</div>
+	</div> <!-- end class address -->
 	<button type="submit">Submit</button>
 	
 	<a href="admin.php"><button class="cancel">Cancel</button></a>
 
 </form>
-
+</div> <!-- end class addgarden -->
 
 
 </body>

@@ -1,4 +1,14 @@
 <?php
+/**
+ * This file wraps sanitize filters so they are useful
+ *
+ * @package:	
+ * @copyright:	March 2012 Thomas J. Bradley
+ * @author:		Thomas J Bradley - bradlet@algonquin.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <>
+ * @version:	1.0.0
+ **/
 
 /**
  * Check for the existence some of the PHP filters

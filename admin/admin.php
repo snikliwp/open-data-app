@@ -1,6 +1,19 @@
 <?php 
-	require_once '../includes/filter-wrapper.php';
-	
+/**
+ * This file displays the admin page and allows for the addition of a new record in the database
+ * and the edit or deletion of an existing record. You must enter credentials to access this page.
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
+
+
+
+require_once '../includes/filter-wrapper.php';
 require_once '../includes/users.php';
 if(!user_is_signed_in()){
 	header('location: sign-in.php');
@@ -34,12 +47,12 @@ include '../includes/admin-theme-top.php';
 
 <div class="titles">
 	<ul>
-		<li class="name">Name</li>
-		<li class="lat">Latitude</li>
-		<li class="long">Longitude</li>
-		<li class="add">Address</li>
-		<li class="del">Delete Record</li>
-		<li class="edit">Edit Record</li>
+		<li class="apname">Name</li>
+		<li class="aplat">Latitude</li>
+		<li class="aplong">Longitude</li>
+		<li class="apadd">Address</li>
+		<li class="apdel">Delete Record</li>
+		<li class="apedit">Edit Record</li>
 	</ul>
 </div>
 <div class="menu2">

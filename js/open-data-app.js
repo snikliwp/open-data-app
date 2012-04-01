@@ -1,4 +1,15 @@
 // JavaScript Document
+/**
+ * This file contains the functions executed by the application
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
+
 
 function setMarker(lat, long, title, id) {
 //	console.log(title);
@@ -18,6 +29,7 @@ function setStars(id, count, response) {
 	console.log("this is id response count", id, response, count);
 console.log("this is math round response/count", Math.round(response / count));
 	if (Math.round(response / count) >= 1 ){
+console.log("this is the phrase to modify the star", $('.star1', $('#garden-' + id)).addClass('rated'));
 		$('.star1', $('#garden-' + id)).addClass('rated');
 	}
 	

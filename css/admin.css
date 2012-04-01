@@ -1,9 +1,13 @@
-/*
-Description: Open Data App
-Author: Pat Wilkins
-Version: 1.0.0
-Tags: Ottawa Museums
-*/ 
+/**
+ * This file displays is the css for the administrative pages
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
 
 
 .clearfix:before,
@@ -73,20 +77,59 @@ body {
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 
 }	
+.addgarden,
 .login {
-		text-align: left;
-		margin-left: 25em;
+	text-align: left;
+	margin-left: 25em;
+	display:inline-block;
+	width: 695px;
+}
+.addgarden {
+	display:block;
+	margin-left: 23em;
 }
 
-password,
-email,
-label {
-width:150px;
-display:inline-block;
+
+.password,
+.email,
+{
+width:100px;
 margin-bottom:10px;
 }
-input[type="button"]
-{
+
+
+.email,
+.password {
+width: 385px;
+display: block;
+margin-bottom:10px;
+}
+
+.email #email,
+.password #password {
+	width: 350px;
+}
+.masthead h1 {
+	padding-top: 30px;
+}
+
+.name,
+.latitude,
+.longitude,
+.address {
+width: 385px;
+display: block;
+margin-bottom:10px;
+}
+
+.name #name,
+.address #address,
+.longitude #longitude,
+.latitude #latitude {
+	width: 350px;
+}
+
+input[type="button"] {
 width:120px;
 margin-left:35px;
 display:block;
@@ -95,40 +138,40 @@ display:block;
 .menu2 p {
 	margin: 0;
 	padding: 0;
-	
 }
 
 .options {
 	text-align: center;
 }
 
-.titles .name {
+.titles .apname {
 	width: 23em;
+	margin-bottom: 0px;
 }
 
-.titles .lat {
+.titles .aplat {
 	width: 8em;
 }
 
-.titles .long {
+.titles .aplong {
 	width: 8em;
 }
 
-.titles .add {
+.titles .apadd {
 	width: 13em;
 }
 
-.titles .edit {
+.titles .apedit {
 	width: 6.5em;
 }
 
-.titles .del {
+.titles .apdel {
 	width: 6.5em;
 }
 
 .menu2 {
 	overflow-y: scroll;
-	height: 565px;
+	height: 535px;
 	width: 1050px;
 	float: left;
 	border: solid 2px #C93;
@@ -139,17 +182,18 @@ display:block;
 	font-weight: bold;
 	margin: 10px 0 0 25px;
 	padding: 0;
-
-	
 }
+
 .titles ul {
 	margin: 0;
 	padding: 0;
 }
+
 table {
 border-collapse: collapse;
 table-layout: fixed;
 }
+
 table,th, td {
 border: 1px solid black;
 }
@@ -160,3 +204,25 @@ ul li {
 	margin: 0;
 }
 
+.exist {
+	margin-left: 25em;
+}
+
+.exist ul li {
+	list-style-type: none;
+	display: block;
+	margin: 0;
+	padding-left: 5px;
+}
+
+.exist ul {
+	margin: 0;
+	padding: 0;
+	width: 350px;
+	border: solid 2px #C93;
+	min-height: 300px;
+}
+
+.exist h3 {
+	margin: 30px 0 10px 5px;
+}

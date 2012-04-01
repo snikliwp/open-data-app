@@ -1,4 +1,16 @@
 <?php 
+/**
+ * This file is a program to take the kml data file and load the information
+ * contained in it into the database. It is optimized for the community
+ * gardens kvm file and may not work with other kvm files
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
 
 	require_once 'includes/filter-wrapper.php';
 	require_once 'includes/db.php';
