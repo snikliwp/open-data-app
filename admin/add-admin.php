@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			user_create($db, $email, $password);
 			$errors['user-is-empty'] = true;
 		}
-//		header('Location: admin.php');
-//		exit;
+		header('Location: admin.php');
+		exit;
 	}
 
 }
