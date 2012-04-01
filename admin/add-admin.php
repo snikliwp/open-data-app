@@ -19,7 +19,8 @@ if(!user_is_signed_in()) {
 	exit;
 }
 $errors = array();
-
+$email = '';
+$password = '';
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 
