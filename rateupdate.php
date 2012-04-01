@@ -20,8 +20,6 @@ $sql = $db->prepare('
 	count= count + :rate 
 	WHERE id =:id
 		');
-	
-	
 	$sql->bindValue(':rate', $rate, PDO::PARAM_INT);
 	$sql->bindValue(':id', $id, PDO::PARAM_INT);
 	$sql->execute();
@@ -30,3 +28,4 @@ $sql = $db->prepare('
 	exit;
 	
 include 'includes/theme-bottom.php';
+?>
