@@ -13,7 +13,7 @@
 
 function setMarker(lat, long, title, id) {
 //	console.log(title);
-	var myLatlng = new google.maps.LatLng(lat, long)
+	var myLatlng = new google.maps.LatLng(lat, long);
 	var marker = new google.maps.Marker({
 		position: myLatlng,
 		'title': title
@@ -21,7 +21,7 @@ function setMarker(lat, long, title, id) {
 	// To add the marker to the map, call setMap();
 	marker.setMap(map);
 	// Add a click event listener for the marker
-	google.maps.event.addListener(marker, 'click', function() {window.location='single.php?id=' + id });
+	google.maps.event.addListener(marker, 'click', function() {window.location='single.php?id=' + id; });
 } // end setMarker function
 
 
