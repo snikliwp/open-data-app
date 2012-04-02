@@ -69,7 +69,7 @@ a {
 
 .menu {
 	overflow-y: scroll;
-	height: 615px;
+	height: 575px;
 	width: 440px;
 	float: left;
 	border: solid 2px #C93;
@@ -81,6 +81,11 @@ a {
 	padding: 0;
 	
 }
+
+.masthead h1 {
+	padding-top: 30px;
+}
+
 
 .menu2 {
 	overflow-y: scroll;

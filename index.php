@@ -10,8 +10,12 @@
  * @version:	See Version.txt
  **/
 
-	require_once 'includes/filter-wrapper.php';
+require_once 'includes/filter-wrapper.php';
 require_once 'includes/db.php';
+
+// here I want to see what the sort order is and pass that out to a function to sort it
+$sortType = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);
+var_dump('Sort Type', $sortType);
 
 // When using ->query(), the results variable isn't a real array, its an iterable object
 //  Therefore, after the first loop has completed, it isn't being reset to the start
@@ -21,9 +25,9 @@ $stmt = $db->query('SELECT id, name, longitude, latitude, address, response, cou
 				ORDER BY name ASC');
 $results = $stmt->fetchAll();
 
+
 include 'includes/theme-top.php';
 ?>
-
 	<title>Gardens</title>
 	<script type="text/javascript">
 		var map
@@ -53,6 +57,7 @@ include 'includes/theme-top.php';
 							<?php echo '<tr><td>' ?>
 							<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
 							 <?php echo '</td><td>'?>
+							 <!-- I need an if statement here to either display this in the stars field or a distance if sorted by closest -->
 							 <ul id="garden-<?php echo $garden['id'];?>" class="garden">
 								 <li class="star1 ">★</li>
 								 <li class="star2 ">★</li>
