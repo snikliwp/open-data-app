@@ -7,7 +7,12 @@ if (empty($id)) {
 	exit;
 };
 $rate = filter_input(INPUT_GET, 'rate', FILTER_SANITIZE_NUMBER_INT);
+$cookie = get_rate_cookie();
 
+if (isset($cookie[$id]) || $rate < 0 || $rate > 5) {
+	header('Location: single.php?id=' . $id);
+	exit;
+}
 
 // you only need to connect to the database if the id is not empty
 require_once 'includes/db.php';
@@ -23,6 +28,8 @@ $sql = $db->prepare('
 	$sql->bindValue(':rate', $rate, PDO::PARAM_INT);
 	$sql->bindValue(':id', $id, PDO::PARAM_INT);
 	$sql->execute();
+	
+	save_rate_cookie($id, $rate);
 	
 	header('Location: index.php');
 	exit;

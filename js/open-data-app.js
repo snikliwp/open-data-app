@@ -9,7 +9,7 @@
  * @license:	New BSD License <> See License.txt
  * @version:	See Version.txt
  **/
-
+var userLoc = false;
 
 function setMarker(lat, long, title, id) {
 //	console.log(title);
@@ -48,16 +48,39 @@ function setStars(id, count, response) {
 	}
 } // end setStars function
 
-function sortData(sortType, results) {
-//	console.log(title);
-	var myLatlng = new google.maps.LatLng(lat, long);
-	var marker = new google.maps.Marker({
-		position: myLatlng,
-		'title': title
-	});
-	// To add the marker to the map, call setMap();
-	marker.setMap(map);
-	// Add a click event listener for the marker
-	google.maps.event.addListener(marker, 'click', function() {window.location='single.php?id=' + id; });
-} // end setMarker function
+function sortData(ev) {
+	ev.preventDefault(); // This stops the form submit from sending the data to the server
+	//get the information again in the right order
+	console.log('in sort data');
+	var Index = document.getElementById("sortFormID").selectedIndex;
+		console.log('Index:' , Index);
+//	document.getElementById("Text").value = 
+	var sortName = document.getElementById("sortFormID").options[Index].text;
+//	document.getElementById("Value").value = 
+	var sortValue = document.getElementById("sortFormID").options[Index].value;
+		console.log('sortName:' , sortName);
+		console.log('sortValue:' , sortValue);
+	
+	if (sortValue == 'alpha'){
+		$('.main').load('dataSortAlpha.php');
+	}
+	if (sortValue == 'rate'){
+		$('.main').load('dataSortRate.php');
+	}
+} // end sortData function
 
+
+//	var myLatlng = new google.maps.LatLng(lat, long);
+//	var marker = new google.maps.Marker({
+//		position: myLatlng,
+//		'title': title
+//	});
+	// To add the marker to the map, call setMap();
+//	marker.setMap(map);
+	// Add a click event listener for the marker
+//google.maps.event.addListener(marker, 'click', function() {window.location='single.php?id=' + id; });
+
+
+$(document).ready (function () {
+document.getElementById("sortForm").addEventListener("submit", sortData, false);
+});

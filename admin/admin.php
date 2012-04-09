@@ -22,7 +22,7 @@ if(!user_is_signed_in()){
 
 
 require_once '../includes/db.php';
-
+	
 $results = $db->query('SELECT id, name, longitude, latitude, address 
 				FROM gardens 
 				ORDER BY name ASC');

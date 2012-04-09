@@ -44,6 +44,9 @@ if (empty($results)) {
 	header('Location: index.php');
 	exit;
 };
+
+$cookie = get_rate_cookie();
+
 include 'includes/theme-top.php';
 
 ?>
