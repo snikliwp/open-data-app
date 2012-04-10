@@ -1,5 +1,6 @@
 <?php 
-	require_once 'includes/filter-wrapper.php';
+require_once 'includes/filter-wrapper.php';
+require_once 'includes/functions.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id)) {
@@ -31,7 +32,7 @@ $sql = $db->prepare('
 	
 	save_rate_cookie($id, $rate);
 	
-	header('Location: index.php');
+	header('Location: single.php');
 	exit;
 	
 include 'includes/theme-bottom.php';

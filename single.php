@@ -12,7 +12,8 @@
  **/
 
 
-	require_once 'includes/filter-wrapper.php';
+require_once 'includes/filter-wrapper.php';
+require_once 'includes/functions.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id)) {
@@ -79,6 +80,26 @@ include 'includes/theme-top.php';
 				} // end function afterInit
 		</script>
 	</div>	<!-- end class smap -->
+	
+<?php if (isset($cookie[$id])) : ?>
+	
+	<div class="rate">
+		<p>You have already rated this site as:</p>
+		<div class="stars">
+			 <ul id="garden-<?php echo $results['id'];?>" class="garden">
+				 <li class="star1 ">★</li>
+				 <li class="star2 ">★</li>
+				 <li class="star3 ">★</li>
+				 <li class="star4 ">★</li>
+				 <li class="star5 ">★</li>
+			 </ul>
+			 <script>setStars(<?php echo $results['id'];?>, <?php echo $results['response'];?>, <?php echo $results['count'];?>);
+			 </script>
+		</div><!-- end class stars -->
+	</div>	<!-- end class rate -->
+	
+	<?php else : ?>
+	
 	<div class="rate">
 		<p>Select the rating you wish to accord this site.</p>
 		<div class="setup">
@@ -96,8 +117,18 @@ include 'includes/theme-top.php';
 				 <li class="star5 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=5">★</a></li>
 			 </ul>
 		</div><!-- end class stars -->
-
 	</div>	<!-- end class rate -->
+		<?php 
+//			$back = 'Location: single.php?id=' + $results['id'];
+//			var_dump($back);
+//			header("Location: $back");
+//	//		header( echo 'Location: single.php?id=' + echo $results['id'];);
+//			exit;
+		?>
+	<?php endif ?>
+
+
+
 	<div class="return">
 		<a href="index.php">RETURN</a>
 	</div>

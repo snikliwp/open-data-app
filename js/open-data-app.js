@@ -26,7 +26,6 @@ function setMarker(lat, long, title, id) {
 
 
 function setStars(id, count, response) {
-	console.log("this is id response count", id, response, count);
 	if (Math.round(response / count) >= 1 ){
 		$('.star1', $('#garden-' + id)).addClass('rated');
 	}
@@ -68,6 +67,36 @@ function sortData(ev) {
 		$('.main').load('dataSortRate.php');
 	}
 } // end sortData function
+
+function setUserLoc() {
+//	ev.preventDefault(); // This stops the form submit from sending the data to the server
+	//get the information again in the right order
+	console.log('in setUserLoc - not written yet');
+	
+	// open window asking for location or allow us to use default location
+	
+	
+	// set user location in cookie
+	
+	
+	// when sort on userloc get location info from cookie
+	
+//	var Index = document.getElementById("sortFormID").selectedIndex;
+//		console.log('Index:' , Index);
+////	document.getElementById("Text").value = 
+//	var sortName = document.getElementById("sortFormID").options[Index].text;
+////	document.getElementById("Value").value = 
+//	var sortValue = document.getElementById("sortFormID").options[Index].value;
+//		console.log('sortName:' , sortName);
+//		console.log('sortValue:' , sortValue);
+//	
+//	if (sortValue == 'alpha'){
+//		$('.main').load('dataSortAlpha.php');
+//	}
+//	if (sortValue == 'rate'){
+//		$('.main').load('dataSortRate.php');
+//	}
+} // end setUserLoc function
 
 
 //	var myLatlng = new google.maps.LatLng(lat, long);

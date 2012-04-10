@@ -7,8 +7,6 @@
  * So, we have to come up with a solution to store all the IDs
  *  and since we are storing the IDs, we may as well store what they rated.
  *
- * http://www.flickr.com/photos/andyfox/2534644455/sizes/o/in/photostream/
- *
  * Our cookie will look something like this:
  *  1:4;5:3;6:2
  *

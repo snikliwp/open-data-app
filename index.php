@@ -72,7 +72,7 @@ include 'includes/theme-top.php';
 			<form id="sortForm">
 				<label for="sortFormLabel">Sort</label>
 				<select id="sortFormID" name="sortFormID">
-					<option value="alpha">Alphabetically</option>
+					<option selected value="alpha">Alphabetically</option>
 					<option value="rate">Rating</option>
 					<option value="clos">Closest</option>
 				</select>
