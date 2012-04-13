@@ -1,6 +1,6 @@
 <?php 
 /**
- * This file displays the list of the open data set sorted by alphanumeric
+ * This file displays the list of the open data set sorted by closeness to the user
  *
  * @package:	Gardens
  * @copyright:	March 2012 Pat Wilkins
@@ -11,13 +11,27 @@
  **/
 
 require_once 'includes/filter-wrapper.php';
+require_once 'includes/functions.php';
+// Check to see if they already have a location
+
+$cookie = get_loc_cookie();
+
+if (!isset($cookie[0])) {
+	// it is empty
+	//get location
+	header('Location: getlocation.php');
+	exit;
+}else{
+	// sort by location
+}
+
 require_once 'includes/db.php';
 
 $stmt = $db->query('SELECT id, name, longitude, latitude, address, response, count 
 				FROM gardens 
-				ORDER BY name ASC');
+				ORDER BY count / response DESC');
 $results = $stmt->fetchAll();
-
+// var_dump($results);
 
  foreach ($results as $garden) : ?>
 	<?php echo '<tr><td>' ?>

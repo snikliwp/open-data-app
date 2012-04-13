@@ -62,6 +62,15 @@ border: 1px solid black;
 	text-align: center;
 }
 
+.innermasthead {
+	text-align: center;
+	width: 420px;
+}
+
+.geo-form {
+	min-height: 460px;
+}
+
 a {
 	list-style-type: none;
 	text-decoration: none;
@@ -83,6 +92,10 @@ a {
 }
 
 .masthead h1 {
+	padding-top: 30px;
+}
+
+.innermasthead h1 {
 	padding-top: 30px;
 }
 

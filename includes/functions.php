@@ -1,4 +1,14 @@
 <?php
+/**
+ * This file contains a number of functions that are  called by other pages
+ *
+ * @package:	Gardens
+ * @copyright:	March 2012 Pat Wilkins
+ * @author:		Pat Wilkins - wilk0146@algonquinlive.com
+ * @link:		https://github.com/wilk0146/open-data-app
+ * @license:	New BSD License <> See License.txt
+ * @version:	See Version.txt
+ **/
 
 /**
  * Sets a cookie to remember the user has already voted.
@@ -60,4 +70,47 @@ function get_rate_cookie () {
 	}
 
 	return $ratings;
+}
+
+
+/**
+ * Sets a cookie to remember where the user marker should be placed.
+ * We have to remember the latitude and longitude of the user.
+ * Our cookie will look something like this:
+ *  75.5437543, -45.578935
+ *
+*/
+function save_loc_cookie ($lat, $long) {
+	$cookie = get_loc_cookie();
+
+	$location = array($lat, $long);
+	$cookie_content = implode(':', $location);
+
+	// http://php.net/setcookie
+	// setcookie($name, $content, $expiry_time, $path);
+	// Cookie expirations are in seconds
+	setcookie('location', $cookie_content, time() + 60 * 60 * 24 * 365, '/');
+}
+
+/**
+ * Gets the cookie and splits it apart into its component pieces
+ *
+ * Takes:
+ *  lattitude;longitude
+ * And translates to:
+ *  array(
+ *    lattitude,
+ *    longitude
+ *  )
+ */
+function get_loc_cookie () {
+	$location_content = filter_input(INPUT_COOKIE, 'location', FILTER_SANITIZE_STRING);
+
+	if (empty($location_content)) {
+		return array();
+	}
+
+	$location = explode(':', $location_content);
+
+	return $location;
 }

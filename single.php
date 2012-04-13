@@ -93,8 +93,10 @@ include 'includes/theme-top.php';
 				 <li class="star4 ">★</li>
 				 <li class="star5 ">★</li>
 			 </ul>
-			 <script>setStars(<?php echo $results['id'];?>, <?php echo $results['response'];?>, <?php echo $results['count'];?>);
+			 <script>
+			 	setStars(<?php echo $results['id'];?>, <?php echo $results['response'];?>, <?php echo $results['count'];?>);
 			 </script>
+			<br>
 		</div><!-- end class stars -->
 	</div>	<!-- end class rate -->
 	
@@ -116,6 +118,7 @@ include 'includes/theme-top.php';
 				 <li class="star4 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=4">★</a></li>
 				 <li class="star5 "><a href="rateupdate.php?id=<?php echo $results['id'];?>&rate=5">★</a></li>
 			 </ul>
+			<br>
 		</div><!-- end class stars -->
 	</div>	<!-- end class rate -->
 		<?php 
@@ -126,7 +129,6 @@ include 'includes/theme-top.php';
 //			exit;
 		?>
 	<?php endif ?>
-
 
 
 	<div class="return">

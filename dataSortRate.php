@@ -1,6 +1,6 @@
 <?php 
 /**
- * This file displays the list and map of the open data set
+ * This file displays the list of the open data set sorted by the rating
  *
  * @package:	Gardens
  * @copyright:	March 2012 Pat Wilkins

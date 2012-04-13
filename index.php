@@ -74,7 +74,7 @@ include 'includes/theme-top.php';
 				<select id="sortFormID" name="sortFormID">
 					<option selected value="alpha">Alphabetically</option>
 					<option value="rate">Rating</option>
-					<option value="clos">Closest</option>
+					<option value="close">Closest</option>
 				</select>
 					<button id="sortButton">Sort</button>
 			</form>
@@ -82,13 +82,6 @@ include 'includes/theme-top.php';
 		<div class="admin">
 			<a href="admin/admin.php"><button class="add">Admin Login</button></a>
 		</div> <!-- end class admin -->
-		<script>
-		console.log('in script:' , userLoc);
-			if (!userLoc) {
-			setUserLoc();
-			}
-		</script>
-		
 		
 	</footer>
 <?php
