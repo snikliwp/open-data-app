@@ -75,26 +75,45 @@ function sortData(ev) {
 function save_cookie(lat, long) {
 //	function createCookie(name,value,days) {
 	if(!$('#adr').val()) {
-	console.log('in save cookie, !#adr = ');
-		var date = new Date();
-		date.setTime(date.getTime()+(365*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-		document.cookie = 'location'+"="+lat+':'+long+expires+"; path=/";
-	} else {
-	console.log('in save cookie, #adr = ');
+	console.log('in save cookie if, #adr = ', $('#adr').val());
+		// since the user didn't fill out an address he must want us to find him so 
+		// Request access for the current position and wait for the user to grant it
+		navigator.geolocation.getCurrentPosition(function (pos) {
+			var date = new Date();
+			date.setTime(date.getTime()+(365*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+			document.cookie = 'location'+"="+pos.coords.latitude+':'+pos.coords.longitude+expires+"; path=/";
+			}); // end function pos
+	} else { // no, he filled something in the field
+	console.log('in save cookie else, #adr = ', $('#adr').val());
 		// Google Maps Geo-coder will take an address and convert it to lat/lng
-		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode({
-		// Append 'Ottawa, ON' so our users don't have to
-			address : $('#adr').val() + ', Ottawa, ON'
-			, region : 'CA'
-			} // end geocode curly
-			, function (results, status) { // tthe geocoder returns a results and status 
-				if (status == google.maps.GeocoderStatus.OK) { // check that the status is OK
-					save_cookie(results[0].geometry.location.lat(), results[0].geometry.location.lng()); // if so put them on the map
-					} //end if
-				} // end function
-		) //end geo code bracket
+		var elmA = document.getElementById('error');
+		console.log('element  A = ', elmA);
+		var input = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
+		console.log('input = ', input);
+//		document.getElementById('error').innerHTML = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
+		elmA.innerHTML = input; // Either re-enter the address or take it out completely and let the system identify your location.';
+//		var geocoder = new google.maps.Geocoder();
+//		geocoder.geocode({
+//		// Append 'Ottawa, ON' so our users don't have to
+//			address : $('#adr').val() + ', Ottawa, ON'
+//			, region : 'CA'
+//			} // end geocode curly
+//			, function (results, status) { // tthe geocoder returns a results and status 
+//				// check that the status is OK
+//				if (status == google.maps.GeocoderStatus.OK) { 
+//					var date = new Date();
+//					date.setTime(date.getTime()+(365*24*60*60*1000));
+//					var expires = "; expires="+date.toGMTString();
+//					document.cookie = 'location'+"="+results[0].geometry.location.lat()+':'+results[0].geometry.location.lng()+"; path=/";
+//					} else {
+//						// put some info in the error div using inner.html
+//						var elmA = document.getElementById('error');
+//						elmA.innerHTML = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
+//					} //end else
+//					
+//				} // end function
+//		) //end geo code bracket
 	}; // end else
 } // end save_cookie function
 //)
@@ -108,11 +127,10 @@ $(document).ready (function () {
 	
 	if (navigator.geolocation) { // does browser support geolocation put an else statement that hides the button
 		$('body').on('click','#geo', function(ev) {
-			// Request access for the current position and wait for the user to grant it
-			navigator.geolocation.getCurrentPosition(function (pos) {
-				save_cookie(pos.coords.latitude, pos.coords.longitude); 
+//			navigator.geolocation.getCurrentPosition(function (pos) {
+				save_cookie(45, -75); 
 				}); // end function pos
-			});
+//			});
 	} // end if navigator.geolocation
 }); // end document ready function
 //		}

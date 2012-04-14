@@ -62,6 +62,15 @@ border: 1px solid black;
 	text-align: center;
 }
 
+.geo-form,
+.instructions {
+	margin: 10px;
+}
+
+#geo {
+	float: right;
+}
+
 .innermasthead {
 	text-align: center;
 	width: 420px;

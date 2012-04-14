@@ -25,13 +25,16 @@ require_once 'includes/functions.php';
 
 	<div class="innermasthead">
 		<h1>Get User Location</h1>
-	</div> <!-- end class masthead -->
-	
+	</div> <!-- end class innermasthead -->
+	<div class="instructions">
+		<p>You May fill in an address in the address field and press the 'find me' button or you can leave the addrress field blank and press the 'find me' button. If you do the latter, you must confirm that you want Google to determine your location.</p>
+	</div>  <!-- end class instructions -->
 	<div class="geo-form">
-		<button id="geo">Find Me</button>
 		<form id="geo-form">
 			<label for="adr">Address</label>
 			<input id="adr">
 		</form>
-	</div>
+		<button id="geo">Find Me</button>
+	</div> <!-- end class geo-form -->
+	<div id="error1"><p id="error"></p></div>
 	
