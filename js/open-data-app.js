@@ -85,41 +85,68 @@ function save_cookie(lat, long) {
 			document.cookie = 'location'+"="+pos.coords.latitude+':'+pos.coords.longitude+expires+"; path=/";
 			}); // end function pos
 	} else { // no, he filled something in the field
-	console.log('in save cookie else, #adr = ', $('#adr').val());
 		// Google Maps Geo-coder will take an address and convert it to lat/lng
-		var elmA = document.getElementById('error');
-		console.log('element  A = ', elmA);
-		var input = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
-		console.log('input = ', input);
-//		document.getElementById('error').innerHTML = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
-		elmA.innerHTML = input; // Either re-enter the address or take it out completely and let the system identify your location.';
-//		var geocoder = new google.maps.Geocoder();
-//		geocoder.geocode({
-//		// Append 'Ottawa, ON' so our users don't have to
-//			address : $('#adr').val() + ', Ottawa, ON'
-//			, region : 'CA'
-//			} // end geocode curly
-//			, function (results, status) { // tthe geocoder returns a results and status 
-//				// check that the status is OK
-//				if (status == google.maps.GeocoderStatus.OK) { 
-//					var date = new Date();
-//					date.setTime(date.getTime()+(365*24*60*60*1000));
-//					var expires = "; expires="+date.toGMTString();
-//					document.cookie = 'location'+"="+results[0].geometry.location.lat()+':'+results[0].geometry.location.lng()+"; path=/";
-//					} else {
-//						// put some info in the error div using inner.html
-//						var elmA = document.getElementById('error');
-//						elmA.innerHTML = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
-//					} //end else
+	console.log('in save cookie else, #adr = ', $('#adr').val());
+		
+//		$('#error1').innerHTML = input;
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({
+		// Append 'Ottawa, ON' so our users don't have to
+			address : $('#adr').val() + ', Ottawa, ON'
+			, region : 'CA'
+			} // end geocode curly
+			, function (results, status) { // the geocoder returns a results and status 
+				// check that the status is OK
+				if (status == google.maps.GeocoderStatus.OK) { 
+//	console.log('in save cookie status,  = ', status);
+					var date = new Date();
+					date.setTime(date.getTime()+(365*24*60*60*1000));
+					var expires = "; expires="+date.toGMTString();
+					document.cookie = 'location'+"="+results[0].geometry.location.lat()+':'+results[0].geometry.location.lng()+"; path=/";
+					
+					set_user_location(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+					
+					} else {
+						// put some info in the error div using inner.html
+						var elmA = document.getElementById('error');
+						var input = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
+						elmA.innerHTML = input; // Either re-enter the address or take it out completely and let the system identify your location.';
+					} //end else
 //					
-//				} // end function
-//		) //end geo code bracket
+				} // end function
+		) //end geo code bracket
 	}; // end else
+	$('.main').load('dataSortClose.php');
 } // end save_cookie function
 //)
 //	);
+var userMarker;
+var userLoc;
+// A function to display the user on the Google Map
+function set_user_location (lat, lang) {
+		
+		userLoc = new google.maps.LatLng(lat, lng);
+ console.log('userLoc: ', userLoc);
+	// Create a new marker on the Google Map for the user
+	//  or just reposition the already existent one
+	if (userMarker) {
+		userMarker.setPosition(userLoc);
+	} else {
+		userMarker = new google.maps.Marker({
+			position : userLoc
+			, map : map
+			, title : 'You are here.'
+			, icon : 'images/home-2.png'
+			, animation: google.maps.Animation.DROP
+		});
+	}
 
+	// Center the map on the user's location
+	map.setCenter(userLoc);
 
+}
+
+console.log('userLoc: ', userLoc);
 
 
 $(document).ready (function () {
@@ -128,7 +155,7 @@ $(document).ready (function () {
 	if (navigator.geolocation) { // does browser support geolocation put an else statement that hides the button
 		$('body').on('click','#geo', function(ev) {
 //			navigator.geolocation.getCurrentPosition(function (pos) {
-				save_cookie(45, -75); 
+				save_cookie(25, -25); 
 				}); // end function pos
 //			});
 	} // end if navigator.geolocation

@@ -35,6 +35,6 @@ require_once 'includes/functions.php';
 			<input id="adr">
 		</form>
 		<button id="geo">Find Me</button>
-	</div> <!-- end class geo-form -->
 	<div id="error1"><p id="error"></p></div>
+	</div> <!-- end class geo-form -->
 	

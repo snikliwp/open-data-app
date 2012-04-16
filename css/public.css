@@ -88,7 +88,7 @@ a {
 .menu {
 	overflow-y: scroll;
 	height: 575px;
-	width: 440px;
+	width: 445px;
 	float: left;
 	border: solid 2px #C93;
 
@@ -173,7 +173,7 @@ body {
 	bottom: 0px;
 	left: 4px;
 	height: 500px;
-	width: 610px;
+	width: 600px;
 	border: solid 2px #C93;
 	}
 	

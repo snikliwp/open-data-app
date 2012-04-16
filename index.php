@@ -12,6 +12,7 @@
 
 require_once 'includes/filter-wrapper.php';
 require_once 'includes/db.php';
+require_once 'includes/functions.php';
 
 // here I want to see what the sort order is and pass that out to a function to sort it
 $sortType = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);
@@ -27,7 +28,10 @@ $sortType = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);
 
 
 include 'includes/theme-top.php';
+get_loc_cookie () 
+
 ?>
+
 	<title>Gardens</title>
 	<script type="text/javascript">
 		var map
@@ -64,6 +68,7 @@ include 'includes/theme-top.php';
 						setMarker(<?php echo $garden['latitude'];?>, <?php echo $garden['longitude'];?>, "<?php echo $garden['name'];?>", <?php echo $garden['id'];?> );
 					<?php  endforeach ?>
 					} // end function afterInit
+//					set_user_location(<?php //$location[0] ?>, <?php //$location[1] ?>);
 				</script>
 		</div>	<!-- end class map-->
 	</div>	<!-- end class page -->	

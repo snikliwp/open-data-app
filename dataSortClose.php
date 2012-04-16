@@ -31,21 +31,20 @@ $stmt = $db->query('SELECT id, name, longitude, latitude, address, response, cou
 				FROM gardens 
 				ORDER BY count / response DESC');
 $results = $stmt->fetchAll();
+$distances = array();
 // var_dump($results);
 
- foreach ($results as $garden) : ?>
+foreach ($results as $garden) {
+	$distances[] = distance($cookie[0], $cookie[1], $garden['latitude'], $garden['longitude'], 'k');
+}
+
+asort($distances);
+
+ foreach ($distances as $key=>$distance) : $garden = $results[$key]; ?>
 	<?php echo '<tr><td>' ?>
 	<a href="single.php?id=<?php echo $garden['id'];?>"><?php  echo $garden['name']; ?> </a>
 	 <?php echo '</td><td>'?>
 	 <!-- I need an if statement here to either display this in the stars field or a distance if sorted by closest -->
-	 <ul id="garden-<?php echo $garden['id'];?>" class="garden">
-		 <li class="star1 ">★</li>
-		 <li class="star2 ">★</li>
-		 <li class="star3 ">★</li>
-		 <li class="star4 ">★</li>
-		 <li class="star5 ">★</li>
-	 </ul>
-	 <script>setStars(<?php echo $garden['id'];?>, <?php echo $garden['response'];?>, <?php echo $garden['count'];?>);
-	 </script>
+	 <span><?php echo number_format($distance, 1); ?> km</span>
 	 <?php echo '</td></tr>'?>
 <?php endforeach?>
