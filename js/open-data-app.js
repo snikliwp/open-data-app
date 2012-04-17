@@ -11,7 +11,6 @@
  **/
 
 function setMarker(lat, long, title, id) {
-//	console.log(title);
 	var myLatlng = new google.maps.LatLng(lat, long);
 	var marker = new google.maps.Marker({
 		position: myLatlng,
@@ -51,16 +50,11 @@ function setStars(id, count, response) {
 function sortData(ev) {
 	ev.preventDefault(); // This stops the form submit from sending the data to the server
 	//get the information again in the right order
-	console.log('in sort data');
 	var Index = document.getElementById("sortFormID").selectedIndex;
-		console.log('Index:' , Index);
 //	document.getElementById("Text").value = 
 	var sortName = document.getElementById("sortFormID").options[Index].text;
 //	document.getElementById("Value").value = 
 	var sortValue = document.getElementById("sortFormID").options[Index].value;
-		console.log('sortName:' , sortName);
-		console.log('sortValue:' , sortValue);
-	
 	if (sortValue == 'alpha'){
 		$('.main').load('dataSortAlpha.php');
 	}
@@ -75,10 +69,10 @@ function sortData(ev) {
 function save_cookie(lat, long) {
 //	function createCookie(name,value,days) {
 	if(!$('#adr').val()) {
-	console.log('in save cookie if, #adr = ', $('#adr').val());
 		// since the user didn't fill out an address he must want us to find him so 
 		// Request access for the current position and wait for the user to grant it
 		navigator.geolocation.getCurrentPosition(function (pos) {
+			set_user_location(pos.coords.latitude, pos.coords.longitude);
 			var date = new Date();
 			date.setTime(date.getTime()+(365*24*60*60*1000));
 			var expires = "; expires="+date.toGMTString();
@@ -86,9 +80,6 @@ function save_cookie(lat, long) {
 			}); // end function pos
 	} else { // no, he filled something in the field
 		// Google Maps Geo-coder will take an address and convert it to lat/lng
-	console.log('in save cookie else, #adr = ', $('#adr').val());
-		
-//		$('#error1').innerHTML = input;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 		// Append 'Ottawa, ON' so our users don't have to
@@ -98,7 +89,6 @@ function save_cookie(lat, long) {
 			, function (results, status) { // the geocoder returns a results and status 
 				// check that the status is OK
 				if (status == google.maps.GeocoderStatus.OK) { 
-//	console.log('in save cookie status,  = ', status);
 					var date = new Date();
 					date.setTime(date.getTime()+(365*24*60*60*1000));
 					var expires = "; expires="+date.toGMTString();
@@ -112,41 +102,49 @@ function save_cookie(lat, long) {
 						var input = 'That does not seem to be a valid address. Either re-enter the address or take it out completely and let the system identify your location.';
 						elmA.innerHTML = input; // Either re-enter the address or take it out completely and let the system identify your location.';
 					} //end else
-//					
 				} // end function
 		) //end geo code bracket
 	}; // end else
 	$('.main').load('dataSortClose.php');
 } // end save_cookie function
-//)
-//	);
+
+
 var userMarker;
 var userLoc;
 // A function to display the user on the Google Map
-function set_user_location (lat, lang) {
-		
-		userLoc = new google.maps.LatLng(lat, lng);
- console.log('userLoc: ', userLoc);
-	// Create a new marker on the Google Map for the user
-	//  or just reposition the already existent one
-	if (userMarker) {
-		userMarker.setPosition(userLoc);
-	} else {
-		userMarker = new google.maps.Marker({
-			position : userLoc
-			, map : map
-			, title : 'You are here.'
-			, icon : 'images/home-2.png'
-			, animation: google.maps.Animation.DROP
-		});
-	}
+function set_user_location () {
+	var nameEQ = 'location='; // name of cookie we are looking for
+	var ca = document.cookie.split(';');// get all the cookies and split them with a ';'
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i]; // split all the cookies into seperate cookie
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);// get rid of any leading spaces
+			if (c.substring(0,9) == nameEQ) { //find the one we are looking for
+				var equal = c.indexOf('=');
+				var colon = c.indexOf(':');
+				var lat = c.substr(equal + 1, colon - equal - 1);
+				var long = c.substr(colon + 1);
+				userLoc = new google.maps.LatLng(lat, long); // set a new map location
+				// Create a new marker on the Google Map for the user
+				//  or just reposition the already existent one
+				if (userMarker) {
+					userMarker.setPosition(userLoc);
+				} else {
+					userMarker = new google.maps.Marker({
+						position : userLoc
+						, map : map
+						, title : 'You are here.'
+						, icon : 'images/home.png'
+						, animation: google.maps.Animation.DROP
+					});
+					userMarker.setMap(map);
+				} // end else
+				// Center the map on the user's location
+					map.setCenter(userLoc);
+			} // end if
+		} // end while
+	return null;
+} //end function set_user_location
 
-	// Center the map on the user's location
-	map.setCenter(userLoc);
-
-}
-
-console.log('userLoc: ', userLoc);
 
 
 $(document).ready (function () {

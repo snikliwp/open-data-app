@@ -28,8 +28,6 @@ $sortType = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);
 
 
 include 'includes/theme-top.php';
-get_loc_cookie () 
-
 ?>
 
 	<title>Gardens</title>
@@ -67,8 +65,8 @@ get_loc_cookie ()
 					<?php foreach ($results as $garden) : ?>
 						setMarker(<?php echo $garden['latitude'];?>, <?php echo $garden['longitude'];?>, "<?php echo $garden['name'];?>", <?php echo $garden['id'];?> );
 					<?php  endforeach ?>
+					set_user_location();
 					} // end function afterInit
-//					set_user_location(<?php //$location[0] ?>, <?php //$location[1] ?>);
 				</script>
 		</div>	<!-- end class map-->
 	</div>	<!-- end class page -->	

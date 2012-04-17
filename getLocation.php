@@ -11,15 +11,6 @@
  **/
 
 
-require_once 'includes/filter-wrapper.php';
-require_once 'includes/functions.php';
-
-
-// you only need to connect to the database if the id is not empty
-// require_once 'includes/db.php';
-
-// prepare() creates a stored procedure 
-
 
 ?>
 

@@ -21,9 +21,8 @@ if (!isset($cookie[0])) {
 	//get location
 	header('Location: getlocation.php');
 	exit;
-}else{
-	// sort by location
 }
+	// sort by location
 
 require_once 'includes/db.php';
 
