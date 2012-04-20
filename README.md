@@ -30,7 +30,7 @@ The application should now be ready for use.
 
 ##Links
 - Github Repository			<https://github.com/snikliwp/open-data-app>
-- PHPFOG Repository			<git@git01.phpfog.com:gardens.phpfogapp.com>
+- PHPFOG Repository			[git@git01.phpfog.com:gardens.phpfogapp.com](git@git01.phpfog.com:gardens.phpfogapp.com)
 - PHPFOG Application		<http://gardens.phpfogapp.com/index.php>
 - Design Brief				<http://snikliwp.github.com/mtm1526-open-data-app>
 - City of Ottawa Dataset	<http://ottawa.ca/online_services/opendata/info/index_en.html#c> 
