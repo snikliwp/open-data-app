@@ -75,9 +75,9 @@ include 'includes/theme-top.php';
 			<form id="sortForm">
 				<label for="sortFormLabel">Sort</label>
 				<select id="sortFormID" name="sortFormID">
-					<option selected value="alpha">Alphabetically</option>
+					<option selected value="alpha">Alphabetical</option>
 					<option value="rate">Rating</option>
-					<option value="close">Closest</option>
+					<option value="close">Distance</option>
 				</select>
 					<button id="sortButton">Sort</button>
 			</form>

@@ -72,11 +72,12 @@ function save_cookie(lat, long) {
 		// since the user didn't fill out an address he must want us to find him so 
 		// Request access for the current position and wait for the user to grant it
 		navigator.geolocation.getCurrentPosition(function (pos) {
-			set_user_location(pos.coords.latitude, pos.coords.longitude);
 			var date = new Date();
 			date.setTime(date.getTime()+(365*24*60*60*1000));
 			var expires = "; expires="+date.toGMTString();
 			document.cookie = 'location'+"="+pos.coords.latitude+':'+pos.coords.longitude+expires+"; path=/";
+			set_user_location(pos.coords.latitude, pos.coords.longitude);
+			$('.main').load('dataSortClose.php');
 			}); // end function pos
 	} else { // no, he filled something in the field
 		// Google Maps Geo-coder will take an address and convert it to lat/lng
@@ -95,6 +96,7 @@ function save_cookie(lat, long) {
 					document.cookie = 'location'+"="+results[0].geometry.location.lat()+':'+results[0].geometry.location.lng()+"; path=/";
 					
 					set_user_location(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+					$('.main').load('dataSortClose.php');
 					
 					} else {
 						// put some info in the error div using inner.html
@@ -105,7 +107,6 @@ function save_cookie(lat, long) {
 				} // end function
 		) //end geo code bracket
 	}; // end else
-	$('.main').load('dataSortClose.php');
 } // end save_cookie function
 
 
