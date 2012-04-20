@@ -43,6 +43,6 @@ The application should now be ready for use.
 March 2012 Pat Wilkins
 
 ##License
-
+BSD 2
 
 
