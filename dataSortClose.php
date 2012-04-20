@@ -19,7 +19,7 @@ $cookie = get_loc_cookie();
 if (!isset($cookie[0])) {
 	// it is empty
 	//get location
-	header('Location: getlocation.php');
+	header('Location: getLocation.php');
 	exit;
 }
 	// sort by location
