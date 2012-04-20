@@ -29,10 +29,10 @@ By opening a file called 'loaddata.php', located in the root folder, all the dat
 The application should now be ready for use.
 
 ##Links
-- Github Repository			<https://github.com/snikliwp/mtm1531-open-data-app>
+- Github Repository			<https://github.com/snikliwp/open-data-app>
 - PHPFOG Repository			<git@git01.phpfog.com:gardens.phpfogapp.com>
 - PHPFOG Application		<http://gardens.phpfogapp.com/index.php>
-- Design Brief				<http://snikliwp.github.com/mtm1531-open-data-app>
+- Design Brief				<http://snikliwp.github.com/mtm1526-open-data-app>
 - City of Ottawa Dataset	<http://ottawa.ca/online_services/opendata/info/index_en.html#c> 
 - Author					wilk0146@algonquinlive.com
 
